@@ -5,6 +5,9 @@
   <meta charset="utf-8">
  </head>
  <body>
+  <?php
+    include("menu.inc.php");
+  ?>
   <h1>Site des restaurants des quartiers de la ville</h1>
 
   <h2>Voici les quartiers</h2>
