@@ -18,9 +18,26 @@
   </p>
 
   <ul>
-   <li>Petit Bayonne</li>
-   <li>Moyen Bayonne</li>
-   <li>Grand Bayonne</li>
+   <li>
+    <a href="restaurants.php?id_quartier=1">
+     Petit Bayonne
+    </a>
+   </li>
+   <li>
+    <a href="restaurants.php?id_quartier=2">
+     Moyen Bayonne
+    </a>
+   </li>
+   <li>
+    <a href="restaurants.php?id_quartier=3">
+     Grand Bayonne
+    </a>
+   </li>
+   <li>
+    <a href="restaurants.php?id_quartier=4">
+     Enorme Bayonne
+    </a>
+   </li>
   </ul>
 
  </body>
