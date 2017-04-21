@@ -6,6 +6,19 @@
  </head>
  <body>
   <h1>Site des restaurants des quartiers de la ville</h1>
-  Hop™ !
+
+  <h2>Voici les quartiers</h2>
+
+  <p>
+   Cliquez sur le nom d'un quartier
+   pour voir la liste des restaurants du quartier.
+  </p>
+
+  <ul>
+   <li>Petit Bayonne</li>
+   <li>Moyen Bayonne</li>
+   <li>Grand Bayonne</li>
+  </ul>
+
  </body>
 </html>
