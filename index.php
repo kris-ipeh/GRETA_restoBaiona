@@ -18,26 +18,30 @@
   </p>
 
   <ul>
-   <li>
-    <a href="restaurants.php?id_quartier=1">
-     Petit Bayonne
-    </a>
-   </li>
-   <li>
-    <a href="restaurants.php?id_quartier=2">
-     Moyen Bayonne
-    </a>
-   </li>
-   <li>
-    <a href="restaurants.php?id_quartier=3">
-     Grand Bayonne
-    </a>
-   </li>
-   <li>
-    <a href="restaurants.php?id_quartier=4">
-     Enorme Bayonne
-    </a>
-   </li>
+
+<?php
+
+$base = new PDO(
+  "mysql:host=localhost;dbname=resto",
+  "root",
+  ""
+);
+
+$requete = $base->query("select * from quartier");
+
+while($ligne = $requete->fetch()) {
+
+  echo '<li>';
+  echo '<a href="restaurants.php?id_quartier=';
+  echo $ligne['id'];
+  echo '">';
+  echo $ligne['nom'];
+  echo '</li>';
+
+}
+
+?>
+
   </ul>
 
  </body>
