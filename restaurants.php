@@ -1,48 +1,36 @@
-<!DOCTYPE html>
-<html>
- <head>
-  <title>Restaurants du quartier</title>
-  <meta charset="utf-8">
- </head>
- <body>
-  <?php
-    include("menu.inc.php");
-  ?>
-  <h1>Restaurants du quartier</h1>
-
-  <h2>Voici les restaurants du quartier</h2>
-
-  <p>
-   Cliquez sur le nom d'un restaurant
-   pour voir sa description.
-  </p>
-
-  <ul>
+<?php include("entete.php"); ?>
 
 <?php
 
-$base = new PDO(
-  "mysql:host=localhost;dbname=resto",
-  "root",
-  ""
-);
-
 $id_quartier = $_REQUEST['id_quartier'];
 
-
-// optionnel : affichage du nom du quartier
-
-$requete = $base->query(
-  "select nom from quartier where id=$id_quartier"
+$requete = $base->prepare(
+  "select nom from quartier where id=:id_quartier"
 );
+
+$requete->bindValue(":id_quartier", $id_quartier);
+
+$requete->execute();
 
 $ligne = $requete->fetch();
 
-echo 'Voici les restaurants du quartier ';
-echo $ligne['nom'];
+?>
 
-// fin optionnel
+<p class="lead">
+ Voici les restaurants du quartier
+ <?php
+  echo $ligne['nom'];
+ ?>
+</p>
 
+<p>
+ Cliquez sur le nom d'un restaurant
+ pour voir sa description.
+</p>
+
+<ul>
+
+<?php
 
 $requete = $base->query(
   "select * from restaurant where id_quartier=$id_quartier"
@@ -61,7 +49,6 @@ while($ligne = $requete->fetch()) {
 
 ?>
 
-  </ul>
+</ul>
 
- </body>
-</html>
+<?php include("pieddepage.php"); ?>

@@ -1,31 +1,15 @@
-<!DOCTYPE html>
-<html>
- <head>
-  <title>Site des restaurants des quartiers de la ville</title>
-  <meta charset="utf-8">
- </head>
- <body>
-  <?php
-    include("menu.inc.php");
-  ?>
-  <h1>Site des restaurants des quartiers de la ville</h1>
+<?php include("entete.php"); ?>
 
-  <h2>Voici les quartiers</h2>
+<p class="lead">Voici les quartiers</p>
 
-  <p>
-   Cliquez sur le nom d'un quartier
-   pour voir la liste des restaurants du quartier.
-  </p>
+<p>
+ Cliquez sur le nom d'un quartier
+ pour voir la liste des restaurants du quartier.
+</p>
 
-  <ul>
+<ul>
 
 <?php
-
-$base = new PDO(
-  "mysql:host=localhost;dbname=resto",
-  "root",
-  ""
-);
 
 $requete = $base->query("select * from quartier");
 
@@ -36,13 +20,13 @@ while($ligne = $requete->fetch()) {
   echo $ligne['id'];
   echo '">';
   echo $ligne['nom'];
+  echo '</a>';
   echo '</li>';
 
 }
 
 ?>
 
-  </ul>
+</ul>
 
- </body>
-</html>
+<?php include("pieddepage.php"); ?>
