@@ -1,12 +1,7 @@
 <?php include('entete.php'); ?>
 
-<?php
-$sql = 'SELECT restaurant.nom AS restaurant FROM restaurant';
-$request = $base->prepare($sql);
-$request->execute();
-?>
 
-<form action="modifier_cuisinier.php" method="post">
+<form action="update_cuisinier_post.php" method="post">
   <fieldset id="modifier_cuisinier">
   <legend>Modifier les informations d'un cuisinier</legend>
 
@@ -19,7 +14,11 @@ $request->execute();
       <label for="salaire">salaire :</label>
       <input type="number" name="salaire" id="salaire" value="" />
     </div>
-
+<?php
+$sql = 'SELECT restaurant.nom AS restaurant FROM restaurant';
+$request = $base->prepare($sql);
+$request->execute();
+?>
     <div>
       <label for="restaurant_cuisinier">Restaurant du cuisinier :</label>
       <select id="restaurant_cuisinier">
@@ -54,20 +53,3 @@ $request->execute();
 </form>
 
 <?php include('pieddepage.php'); ?>
-
-
-
-
-
-
-
-
-<?php
-// Value form
-function valueForm($field) {
-  if (!empty($_POST[$field])) {
-    return $_POST[$field];
-  };
-}
-
-?>
