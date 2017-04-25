@@ -19,5 +19,10 @@
     Modifier un quartier
    </a>
   </li>
+  <li>
+    <a href="supprimer_un_quartier.php">
+    Supprimer un quartier
+    </a>
+  </li>
  </ul>
 </nav>
