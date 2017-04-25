@@ -1,13 +1,19 @@
 <?php include("entete.php"); ?>
 
 <div id="container">
-        <div class="supprimer-quartier"><h4>Vous voulez supprimer un nouveau quartier ?</h4></div>
-        <form action="supprimer_un_quartier.php" method="POST">
-            <label for="nom">
-                <input type="text" name="supprimer-quartier" id="supprimer-quartier" placeholder="indiquez son nom ici..." size="40" required="" autofocus=""></>
-            </label>
+        <div class="supprimer-quartier"><h4>Vous voulez supprimer un quartier ?</h4></div>
+        <form action="action_supprimer_un_quartier.php" method="POST">
+            <SELECT name="quartier-supprimer" id="quartier-supprimer "size="1">
+                <?php $sql='SELECT id,nom FROM quartier';
+                $request = $base->query($sql);
+                while($data = $request->fetch()) { ?>
+                <option value="<?php echo $data['id']; ?>">
+                    <?php echo $data ['nom']; ?>
+                </option>
+                  <?php } ?>
+            </SELECT>
         <br></br>
-        <input type="submit" name="supprimer-quartier" value="Supprimer">
+        <input type="submit" name="supprimer-quartier" value="Valider">
 </div>
 
 
