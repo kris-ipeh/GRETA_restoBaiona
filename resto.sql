@@ -1,6 +1,6 @@
-drop database if exists resto;
-create database resto;
-use resto;
+drop database if exists restov2;
+create database restov2;
+use restov2;
 
 create table quartier(
  id int not null auto_increment,
