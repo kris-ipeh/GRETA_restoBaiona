@@ -1,0 +1,7 @@
+<?php
+// Copiez ce fichier en config.inc.php
+// et adaptez-y les valeurs ci-dessous :
+$utilisateur = "root";
+$motdepasse = "";
+$nombase = "restov2";
+?>

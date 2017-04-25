@@ -1,9 +1,11 @@
 <?php
 
+include("config.inc.php");
+
 $base = new PDO(
-  "mysql:host=localhost;dbname=resto",
-  "seb",
-  ""
+  "mysql:host=localhost;dbname=$nombase",
+  $utilisateur,
+  $motdepasse
 );
 
 $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
