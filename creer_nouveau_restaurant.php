@@ -11,7 +11,7 @@
 
 // ENTREE DES INFORMATIONS
 	$sql = 'INSERT INTO restaurant (nom, description, adresse, id_quartier) 
-	VALUES ("'.$nom.'", "'.$adresse.'","'.$description.'","'.$id_quartier.'")';
+	VALUES (:nom, :adresse, :description, :id)';
 	$request = $base->prepare($sql);
 	$request->bindValue(':nom', $nom);
 	$request->bindValue(':adresse', $adresse);
