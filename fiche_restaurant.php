@@ -44,7 +44,7 @@ $requete->execute();
 
 echo '<ul>';
 while ($ligne = $requete->fetch()) {
-	echo '<li><strong>Cuisinier : </strong> '. $ligne['nom_cuisinier'] .' <strong>Diplome : </strong>'.$ligne['diplome'].'</li>';
+	echo '<li><strong>Cuisinier : </strong> '. $ligne['nom_cuisinier'] .' <strong>Diplome : </strong>'.$ligne['diplome'].' <a href="">Modifier</a></li>';
 };
 echo '</ul>';
 
