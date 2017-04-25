@@ -2,8 +2,8 @@
 
 <div id="container">
         <div class="supprimer-quartier"><h4>Vous voulez supprimer un quartier ?</h4></div>
-        <form action="action_supprimer_un_quartier.php" method="POST">
-            <SELECT name="quartier-supprimer" id="quartier-supprimer "size="1">
+        <form action="action_supprimer_un_quartier.php">
+            <SELECT name="id_quartier" id="quartier">
                 <?php $sql='SELECT id,nom FROM quartier';
                 $request = $base->query($sql);
                 while($data = $request->fetch()) { ?>
@@ -13,7 +13,9 @@
                   <?php } ?>
             </SELECT>
         <br></br>
-        <input type="submit" name="supprimer-quartier" value="Valider">
+        <input type="image" name="suppression" src="img/delete.svg" style="width: 30px; height:30px;
+    display:inline-block;" alt="Supprimer le quartier" OnClick="return confirm('Voulez-vous vraiment supprimer ?');">
+    
 </div>
 
 
