@@ -14,16 +14,16 @@
 
 
 
-	
 
 
-$requete = $base->query("SELECT quartier.nom as nom_quartier,COUNT(restaurant.id) as nbrResto from restaurant RIGHT JOIN quartier on id_quartier = quartier.id GROUP BY quartier.nom");
+
+$requete = $base->query("SELECT quartier.nom as nom_quartier, quartier.id, COUNT(restaurant.id) as nbrResto from restaurant RIGHT JOIN quartier on id_quartier = quartier.id GROUP BY quartier.nom, quartier.id");
 
 while($ligne = $requete->fetch()) {
 
   echo '<li>';
   echo '<a href="restaurants.php?id_quartier=';
-  echo $ligne['nom_quartier'];
+  echo $ligne['id'];
   echo '">';
   echo $ligne['nom_quartier'];
   echo  ' ('.$ligne['nbrResto'];
