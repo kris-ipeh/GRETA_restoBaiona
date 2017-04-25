@@ -33,20 +33,28 @@ $ligne = $requete->fetch();
 <?php
 
 $requete = $base->query(
-  "select * from restaurant where id_quartier=$id_quartier"
+  "SELECT * FROM restaurant WHERE id_quartier=$id_quartier"
 );
 
 while($ligne = $requete->fetch()) {
+	echo '<li>';
+	echo '<a href="fiche_restaurant.php?id=';
+	echo $ligne['id'];
+	echo '">';
+	echo $ligne['nom'];
 
-  echo '<li>';
-  echo '<a href="fiche_restaurant.php?id=';
-  echo $ligne['id'];
-  echo '">';
-  echo $ligne['nom'];
-  echo '</li>';
+	$requete2 = $base->query(
+		"SELECT COUNT(cuisinier.id) AS nombreCuisinier
+		FROM cuisinier
+		WHERE id_restaurant = ".$ligne['id']
+		);
 
+	$ligne2 = $requete2->fetch();
+	?> (<?php
+	echo $ligne2['nombreCuisinier'];
+	?> cuisiniers)<?php
+	echo '</li>';
 }
-
 ?>
 
 </ul>
