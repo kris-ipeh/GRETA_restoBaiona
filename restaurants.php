@@ -1,4 +1,4 @@
-<?php include("entete.php"); ?>
+<?php include('entete.php'); ?>
 
 <?php
 
@@ -32,9 +32,12 @@ $ligne = $requete->fetch();
 
 <?php
 
-$requete = $base->query(
-  "select * from restaurant where id_quartier=$id_quartier"
+$requete = $base->prepare(
+  "select * from restaurant where id=:id_quartier"
 );
+$requete->bindValue(":id_quartier", $id_quartier);
+
+$requete->execute();
 
 while($ligne = $requete->fetch()) {
 
@@ -51,4 +54,4 @@ while($ligne = $requete->fetch()) {
 
 </ul>
 
-<?php include("pieddepage.php"); ?>
+<?php include('pieddepage.php'); ?>

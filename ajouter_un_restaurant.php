@@ -17,7 +17,7 @@
 		<input type="text" name="description">
 		<br /><br />
 		<label>Quartier :</label>
-			<select name="id">
+			<select name="id_quartier">
 			<?php 
 	  			$sql = 'SELECT * FROM quartier';
 				$request = $base->query($sql);
