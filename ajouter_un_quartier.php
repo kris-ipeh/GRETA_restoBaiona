@@ -14,9 +14,11 @@
 			<label>Description</label>
 				<textarea name="description" class="form-control" rows="3" placeholder="Taper la description du quartier"></textarea>
 		</div>
-			<button type="submit" class="btn btn-default">Soumettre</button>
+			<button type="button" class="btn btn-primary btn-lg btn-block">Valider</button>
 	</form>	
 
 	<?php
 		include('pieddepage.php');
 	?>
+
+
