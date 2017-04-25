@@ -14,6 +14,10 @@
    <a href="ajouter_un_restaurant.php">
     Ajouter un restaurant
    </a>
+   <li>
+   <a href="choisissez_un_quartier.php">
+    Modifier un quartier
+   </a>
   </li>
  </ul>
 </nav>
