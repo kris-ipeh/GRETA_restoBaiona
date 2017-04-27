@@ -98,6 +98,7 @@ if(!empty($_POST)) {
   $request->bindValue(':salaire', $_REQUEST['salaire']);
   $request->bindValue(':id_restaurant', $id_restaurant);
   $request->bindValue(':id_diplome', $id_diplome);
+  $request->bindValue(':id', $id);
   $request->execute();
 };
 
