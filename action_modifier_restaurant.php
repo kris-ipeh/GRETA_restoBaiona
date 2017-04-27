@@ -1,24 +1,23 @@
-	<?php 
-		include('entete.php');
-	?>
-	<h1>Modifier un restaurant</h1>
-	<form action="form_restaurant.php" >
-		
-		<div class="restaurant">
-			<label for="restaurant">MODIFIER LE restaurant</label>
-				<select name="id_restaurant" id="id_restaurant">
-					<?php $sql='SELECT id,nom FROM restaurant';
-					$request = $base ->query($sql);
-					while($data = $request->fetch()) { ?>
-						<option value="<?php echo $data['id']; ?>">
-							<?php echo $data['nom']; ?>
-						</option>
-					<?php }?>
-				</select>
-		
-		</div>
-		</br>
+<?php include('entete.php'); ?>
+<h1>Modifier un restaurant</h1>
+<form action="form_restaurant.php" >
+	
+	<div class="restaurant">
+		<label>Modifier le restaurant
+			<select name="id_restaurant">
+				<?php
+				$requete = $base ->query(
+					'SELECT id, nom FROM restaurant'
+				);
+				while($ligne = $requete->fetch()) { ?>
+					<option value="<?php echo $ligne['id']; ?>">
+						<?php echo $ligne['nom']; ?>
+					</option>
+				<?php }?>
+			</select>
+		</label>
+	</div>
 
-		<input type="submit" name="envoyer">
-	</form>
+	<input type="submit" name="envoyer">
+</form>
 <?php include("pieddepage.php"); ?>

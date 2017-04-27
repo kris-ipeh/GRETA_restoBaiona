@@ -1,38 +1,49 @@
-	<?php 
-		include("entete.php");
-		include('base.inc.php');
+<?php 
+include("entete.php");
 
-		$id = $_REQUEST['id_restaurant'];
-	$id_restaurant = $_REQUEST['id_restaurant'];
+$id = $_REQUEST['id_restaurant'];
 
-$requete = $base->prepare(
-  "select nom AS nom_du_restaurant from restaurant where id=:id_restaurant"
-);
+$requete = $base->prepare("
+  select nom, description
+   from restaurant
+    where id=:id_restaurant
+");
 
-$requete->bindValue(":id_restaurant", $id_restaurant);
+$requete->bindValue(":id_restaurant", $id);
 
 $requete->execute();
 
 $ligne = $requete->fetch();
-		?>
+?>
 
-			<form action="modifier_un_restaurant.php" >
+<form action="modifier_un_restaurant.php" >
 
-		<fieldset id="Renseignez les champs suivants">
-				<legend>Modifier un restaurant : <?php echo $ligne['nom_du_restaurant'];?></legend>
+<fieldset>
+	<legend>Modifier un restaurant :
+		<?php echo $ligne['nom'];?>
+	</legend>
 
-				<div class="reponseSimple">
-					<label for="nom">Nom :</label>
-					<input type="text" name="nom">
-				</div>
+	<div>
+		<label for="nom">Nom :</label>
+			<input id="nom" class="form-control"
+				name="nom"
+				value="<?php echo $ligne['nom']; ?>"
+			>
+	</div>
 
-				<div class="reponseSimple">
-					<label for="description">Description :</label>
-					<input type="text" name="description">
-				</div>
+	<div>
+		<label for="description">Description :</label>
+	 		<textarea id="description" class="form-control"
+				name="description"><?php
+				echo $ligne['description'];
+			?></textarea>
+	</div>
 
-					<input type="hidden" name="id" value="<?php echo $id ?>">
+	<input type="hidden" name="id"
+		value="<?php echo $id ?>">
 
-		</fieldset>
+</fieldset>
 	
-			<input type="submit" value="Validez"></input>
+<button type="submit" class="btn btn-primary btn-lg btn-block">
+	Envoyer
+</button>
