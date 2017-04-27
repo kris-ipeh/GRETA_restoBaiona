@@ -19,6 +19,15 @@
 	<a href="form_suppr_restaurant.php">
 	Supprimer un restaurant
 	</a>
+   <li>
+   <a href="choisissez_un_quartier.php">
+    Modifier un quartier
+   </a>
+  </li>
+  <li>
+    <a href="supprimer_un_quartier.php">
+    Supprimer un quartier
+    </a>
   </li>
  </ul>
 </nav>

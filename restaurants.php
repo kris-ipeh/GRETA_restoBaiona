@@ -1,4 +1,4 @@
-<?php include("entete.php"); ?>
+<?php include('entete.php'); ?>
 
 <?php
 
@@ -32,23 +32,34 @@ $ligne = $requete->fetch();
 
 <?php
 
-$requete = $base->query(
-  "select * from restaurant where id_quartier=$id_quartier"
+$requete = $base->prepare(
+  "select * from restaurant where id_quartier=:id_quartier"
 );
+$requete->bindValue(":id_quartier", $id_quartier);
+
+$requete->execute();
 
 while($ligne = $requete->fetch()) {
+	echo '<li>';
+	echo '<a href="fiche_restaurant.php?id=';
+	echo $ligne['id'];
+	echo '">';
+	echo $ligne['nom'];
 
-  echo '<li>';
-  echo '<a href="fiche_restaurant.php?id=';
-  echo $ligne['id'];
-  echo '">';
-  echo $ligne['nom'];
-  echo '</li>';
+	$requete2 = $base->query(
+		"SELECT COUNT(cuisinier.id) AS nombreCuisinier
+		FROM cuisinier
+		WHERE id_restaurant = ".$ligne['id']
+		);
 
+	$ligne2 = $requete2->fetch();
+	?> (<?php
+	echo $ligne2['nombreCuisinier'];
+	?> cuisiniers)<?php
+	echo '</li>';
 }
-
 ?>
 
 </ul>
 
-<?php include("pieddepage.php"); ?>
+<?php include('pieddepage.php'); ?>

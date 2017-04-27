@@ -1,0 +1,19 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+.header {
+	background-color: #8e001c;
+	
+}
+
+.header a {
+	color:#FBF7E4;
+	font-size: 2em;
+}
+
+.header a:hover {
+	color:#8e001c;
+}
