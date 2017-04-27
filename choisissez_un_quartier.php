@@ -1,24 +1,23 @@
-	<?php 
-		include('entete.php');
-	?>
-	<h1>Modifier un quartier</h1>
-	<form action="modifier_un_quartier_form.php">
-		
-		<div class="quartier">
-			<label for="quartier">Choisissez un quartier</label>
-				<select name="id_quartier" id="id_quartier">
-					<?php $sql='SELECT id,nom FROM quartier';
-					$request = $base ->query($sql);
-					while($data = $request->fetch()) { ?>
-						<option value="<?php echo $data['id']; ?>">
-							<?php echo $data['nom']; ?>
-						</option>
-					<?php }?>
-				</select>
-		
-		</div>
-		</br>
-
-		<input type="submit" name="envoyer">
-	</form>
+<?php 
+	include('entete.php');
+?>
+<h1>Modifier un quartier</h1>
+<form action="modifier_un_quartier_form.php">
+	<div class="quartier">
+		<label>Choisissez un quartier
+			<select name="id_quartier">
+				<?php
+				$requete = $base->query(
+					'SELECT id, nom FROM quartier'
+				);
+				while($ligne = $requete->fetch()) { ?>
+					<option value="<?php echo $ligne['id']; ?>">
+						<?php echo $ligne['nom']; ?>
+					</option>
+				<?php }?>
+			</select>
+		</label>	
+	</div>
+	<input type="submit">
+</form>
 <?php include("pieddepage.php"); ?>
