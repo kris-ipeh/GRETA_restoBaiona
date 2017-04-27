@@ -1,29 +1,31 @@
-	<?php 
-		include("entete.php");
-		include('base.inc.php');
-		?>
-	<h3>Modifier un quartier</h3>
-	
-	<ul>
+<?php 
+	include("entete.php");
+?>
+<h3>Modifier un quartier</h3>
 
-	<?php
+<?php
 
-	$nom= $_REQUEST['nom'];
-	$description=$_REQUEST['description'];
-	$requete = $base->prepare(
-		'UPDATE quartier 
-		    SET nom = :nom, 
-		    		description= :description
-		    	WHERE id = :id
-		');
-	$requete-> bindValue(":nom", $_REQUEST['nom']);
-	$requete-> bindValue(":description", $_REQUEST['description']);
-	$requete-> bindValue(":id", $_REQUEST['id']);
-	$requete->execute();
-	?>
-		<li>Nom du quartier : <?php echo $nom; ?></li>
-		<li>Description du quartier : <?php echo $description;?></li>
+$nom= $_REQUEST['nom'];
+$description=$_REQUEST['description'];
+$requete = $base->prepare('
+	UPDATE quartier 
+	    SET nom = :nom, 
+		description= :description
+	  WHERE id = :id
+	');
+$requete-> bindValue(":nom", $_REQUEST['nom']);
+$requete-> bindValue(":description", $_REQUEST['description']);
+$requete-> bindValue(":id", $_REQUEST['id']);
+$ok = $requete->execute();
+if ($ok) {
+	echo "<p>Le quartier a bien été modifié</p>";
+} else {
+	echo "<p>Erreur : ça a pas marché</p>";
+}
+?>
+<ul>
+	<li>Nom du quartier : <?php echo $nom; ?></li>
+	<li>Description du quartier : <?php echo $description; ?></li>
+</ul>
 
-	</ul>
-
-	<?php include("pieddepage.php"); ?>
+<?php include("pieddepage.php"); ?>

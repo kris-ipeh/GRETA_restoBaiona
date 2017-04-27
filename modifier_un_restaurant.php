@@ -1,26 +1,29 @@
-	<?php 
-		include("entete.php");
-		include('base.inc.php');
-		?>
-	<h3>Modifier un restaurant</h3>
-<ul>
+<?php include("entete.php"); ?>
+<h3>Modifier un restaurant</h3>
 
 <?php
-	$nom= $_REQUEST['nom'];
-	$description=$_REQUEST['description'];
-	$requete = $base->prepare('
-		UPDATE restaurant
-	 		SET nom = :nom,
-	 			description = :description
-	 		WHERE id = :id
-	 	');
-	$requete->bindValue(":nom", $_REQUEST['nom']);
-	$requete->bindValue(":description", $_REQUEST['description']);
-	$requete->bindValue(":id", $_REQUEST['id']);
-	$requete->execute();
+$nom= $_REQUEST['nom'];
+$description=$_REQUEST['description'];
+$requete = $base->prepare('
+	UPDATE restaurant
+		SET
+			nom = :nom,
+			description = :description
+		WHERE id = :id
+	');
+$requete->bindValue(":nom", $_REQUEST['nom']);
+$requete->bindValue(":description", $_REQUEST['description']);
+$requete->bindValue(":id", $_REQUEST['id']);
+$ok = $requete->execute();
+if ($ok) {
+	echo '<p>Le restaurant a été mis à jour.</p>';
+} else {
+	echo '<p>Le restaurant n\'a PAS été mis à jour !</p>';
+}
 
-	?>
-	<li>Nom du restaurant : <?php echo $nom; ?></li>
-	<li>Description du restaurant : <?php echo $description;?></li>
+?>
+<ul>
+<li>Nom du restaurant : <?php echo $nom; ?></li>
+<li>Description du restaurant : <?php echo $description;?></li>
 </ul>
 <?php include("pieddepage.php"); ?>
