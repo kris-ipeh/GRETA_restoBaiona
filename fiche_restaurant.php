@@ -43,5 +43,11 @@ echo $ligne['description'];
 echo '</p>';
 
 ?>
+	<div>
+	<!--bouton Supprimer-->
+	<label for="submit"></label>
+	<input type="submit" name="text" value="Supprimer">
+	</div>
+
 
 <?php include("pieddepage.php"); ?>
