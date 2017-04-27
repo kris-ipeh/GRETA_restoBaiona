@@ -6,7 +6,8 @@ include('entete.php');
 $id = $_REQUEST['id']; ?>
 
 <!-- formulaire -->
-<form action="action_update_cuisinier.php">
+<form action="action_update_cuisinier.php"
+      class="form-horizontal">
   <!-- on transmet au fichier PHP de destination l'id du cuisinier -->
   <input type="hidden" name="id" value="<?php echo $id ?>">
   <fieldset id="modifier_cuisinier">
@@ -23,19 +24,21 @@ $id = $_REQUEST['id']; ?>
       <div>
         <label>Nom :
           <input name="nom"
-                 value="<?php echo($ligneCuisinier['nom']); ?>" />
+                 value="<?php echo($ligneCuisinier['nom']); ?>"
+                 class="form-control" />
         </label>
       </div>
-    
+
       <div>
         <label>salaire :
            <input type="number" name="salaire"
-                  value="<?php echo($ligneCuisinier['salaire']); ?>"/>
+                  value="<?php echo($ligneCuisinier['salaire']); ?>"
+                  class="form-control"/>
         </label>
       </div>
       <div>
       <label>Restaurant :
-       <select name="id_restaurant">
+       <select name="id_restaurant" class="form-control">
         <?php
         //afficher la liste des restaurants
         $sql = 'SELECT id, nom FROM restaurant';
@@ -58,7 +61,7 @@ $id = $_REQUEST['id']; ?>
 
     <div>
      <label>Diplôme :
-      <select name="id_diplome" />
+      <select name="id_diplome" class="form-control">
         <?php
         //afficher la liste des diplômes
         $sql = 'SELECT id, nom FROM diplome';
@@ -79,7 +82,7 @@ $id = $_REQUEST['id']; ?>
      </label>
     </div>
     <div>
-      <input type="submit" name="valider">
+      <input type="submit" name="valider" class="btn btn-primary" />
     </div>
   </fieldset>
 </form>
