@@ -14,7 +14,7 @@
 			<label>Description</label>
 				<textarea name="description" class="form-control" rows="3" placeholder="Taper la description du quartier"></textarea>
 		</div>
-			<button type="button" class="btn btn-primary btn-lg btn-block">Valider</button>
+			<button type="submit" class="btn btn-primary btn-lg btn-block">Valider</button>
 	</form>	
 
 	<?php

@@ -7,17 +7,26 @@
 	<h2> Ajoutez un restaurant : <br /><br /></h2>
 
 	<form action="creer_nouveau_restaurant.php">
-		<label>Entrez le nom du restaurant :</label>
-		<input type="text" name="nom">
-		<br /><br />
-		<label>Entrez l'adresse du restaurant :</label>
-		<input type="text" name="adresse">
-		<br /><br />
-		<label>Entrez la description du restaurant :</label>
-		<input type="text" name="description">
-		<br /><br />
+		<div class="form-group row">
+  			<label for="example-text-input" class="col-2 col-form-label">Nom du restaurant :</label>
+  				<div class="col-10">
+    				<input class="form-control" type="text" id="example-text-input" name="nom">
+ 				 </div>
+ 				 </div>
+ 		<div class="form-group row">
+  			<label for="example-text-input" class="col-2 col-form-label">Adresse du restaurant :</label>
+  				<div class="col-10">
+    				<input class="form-control" type="text" id="example-text-input" name="adresse">
+ 				 </div>
+ 				 </div>
+ 		<div class="form-group row">
+  			<label for="example-text-input" class="col-2 col-form-label">Description du restaurant :</label>
+  				<div class="col-10">
+    				<input class="form-control" type="text" id="example-text-input" name="description">
+ 				 </div>	
+		
 		<label>Quartier :</label>
-			<select name="id">
+			<select name="id_quartier">
 			<?php 
 	  			$sql = 'SELECT * FROM quartier';
 				$request = $base->query($sql);
@@ -28,10 +37,15 @@
 							print $donnees['nom'];
 						?> 
 					</option>
+
 			<?php } ?>
-			
-		<input type="submit" name="submit">
+			</select>
+			<br />
 		<a href="ajouter_un_quartier.php">Créer un nouveau quartier</a>
+		<br />	 <br />
+		<button type="button" class="btn btn-primary">Valider</button>
+
+		
 	</form>
 
 	<?php include("pieddepage.php"); ?>
