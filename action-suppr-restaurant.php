@@ -1,7 +1,8 @@
 <?php
  include('entete.php'); 
-
-
+ ?>
+ 
+<?php
 
 	$id_restaurant = $_REQUEST['id_restaurant'];
 	

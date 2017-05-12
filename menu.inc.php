@@ -16,7 +16,7 @@
    </a>
    </li>
    <li>
-	<a href="form_suppr_restaurant.php">
+	<a href="form-suppr-restaurant.php">
 	Supprimer un restaurant
 	</a>
    <li>
