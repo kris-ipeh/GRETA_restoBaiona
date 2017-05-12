@@ -29,5 +29,10 @@
     Supprimer un quartier
     </a>
   </li>
+ <li>
+   <a href="action_modifier_restaurant.php">
+    Modifier un restaurant
+   </a>
+  </li>
  </ul>
 </nav>
