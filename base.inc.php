@@ -3,7 +3,7 @@
 include("config.inc.php");
 
 $base = new PDO(
-  "mysql:host=localhost;dbname=$nombase",
+  "mysql:host=localhost;dbname=$nombase;charset=utf8",
   $utilisateur,
   $motdepasse
 );
