@@ -5,7 +5,7 @@
 $id_quartier = $_REQUEST['id_quartier'];
 
 $requete = $base->prepare(
-  "select nom from quartier where id=:id_quartier"
+  "select nom,description from quartier where id=:id_quartier"
 );
 
 $requete->bindValue(":id_quartier", $id_quartier);
@@ -23,6 +23,8 @@ $ligne = $requete->fetch();
  ?>
 </p>
 
+
+<p> <?=$ligne['description'];?></p>
 <p>
  Cliquez sur le nom d'un restaurant
  pour voir sa description.
