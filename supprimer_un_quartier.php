@@ -17,8 +17,13 @@
           </option>
         <?php } ?>
     </SELECT>
-    <input type="image" name="suppression" src="img/delete.svg" style="width: 30px; height:30px;
-  display:inline-block;" alt="Supprimer le quartier" OnClick="return confirm('Voulez-vous vraiment supprimer ?');">
+    <input type="image" 
+           name="suppression" 
+           src="img/delete.svg" 
+           style="width: 30px; height:30px;
+                  display:inline-block;" 
+           alt="Supprimer le quartier" 
+           OnClick="return confirm('Voulez-vous vraiment supprimer ?');">
   </form>
 </div>
 
