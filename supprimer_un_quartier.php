@@ -5,7 +5,7 @@
   <form action="action_supprimer_un_quartier.php">
     <SELECT name="id_quartier" id="quartier">
       <?php 
-        $sql='SELECT nom FROM quartier WHERE id not in (
+        $sql='SELECT nom, id FROM quartier WHERE id not in (
                         select id_quartier
                           from restaurant
                             )';
