@@ -39,8 +39,8 @@ echo $ligne['description'];
 echo '</p>';
 
 echo '<iframe
-			  width="600"
-			  height="450"
+			  width="400"
+			  height="250"
 			  frameborder="0" style="border:0"
 			  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCfdfxefoZzEleeHJs5l0Mg065kn2ydoRk
 			    &q='.$ligne['adresse'].'" allowfullscreen>
@@ -67,11 +67,6 @@ while ($ligne = $requete->fetch()) {
 echo '</ul>';
 
 ?>
-	<div>
-	<!--bouton Supprimer-->
-	<label for="submit"></label>
-	<input type="submit" name="text" value="Supprimer">
-	</div>
 
 
 <?php include("pieddepage.php"); ?>
