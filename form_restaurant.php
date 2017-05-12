@@ -1,10 +1,10 @@
-<?php 
+<?php
 include("entete.php");
 
 $id = $_REQUEST['id_restaurant'];
 
 $requete = $base->prepare("
-  select nom, description
+  select nom, adresse, description
    from restaurant
     where id=:id_restaurant
 ");
@@ -32,6 +32,14 @@ $ligne = $requete->fetch();
 	</div>
 
 	<div>
+		<label for="adresse">Adresse :</label>
+			<input id="adresse" class="form-control"
+				name="adresse"
+				value="<?php echo $ligne['adresse']; ?>"
+			>
+	</div>
+
+	<div>
 		<label for="description">Description :</label>
 	 		<textarea id="description" class="form-control"
 				name="description"><?php
@@ -43,7 +51,7 @@ $ligne = $requete->fetch();
 		value="<?php echo $id ?>">
 
 </fieldset>
-	
+
 <button type="submit" class="btn btn-primary btn-lg btn-block">
 	Envoyer
 </button>
