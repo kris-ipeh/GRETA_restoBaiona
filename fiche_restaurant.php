@@ -52,9 +52,9 @@ $requete->execute();
 
 echo '<ul>';
 while ($ligne = $requete->fetch()) {
-	echo '<li><strong>Cuisinier : </strong> '. $ligne['nom_cuisinier'] .'
-	<strong>Diplome : </strong>'.$ligne['diplome'].'
-	<a href="update_cuisinier.php?id='.$ligne['id_cuisinier'].'">Modifier</a></li>';
+	echo '<li><strong>Cuisinier : </strong><a href="fiche_cuisinier.php?id='.$ligne['id_cuisinier'].'"> '. $ligne['nom_cuisinier'] .'
+	</a><strong>Diplome : </strong>'.$ligne['diplome'].'</li>';
+
 };
 echo '</ul>';
 
