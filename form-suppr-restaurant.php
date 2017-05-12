@@ -8,7 +8,7 @@
 	<small>Veuillez sélectionner un restaurant à supprimer</small>
 	
 	<!-- Début formulaire de suppression -->
-	<form action="action-suppr-restaurant.php">
+	<form action="action-suppr-restaurant.php" method="get">
 		<select name="id_restaurant" id="restaurant">
 			<?php $sql='SELECT id, nom FROM restaurant';
 			$request = $base->query($sql);
