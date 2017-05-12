@@ -1,15 +1,5 @@
-ajouter des contraintes sur la table restaurant
-
-ajouter des contraintes sur la table cuisinier
-
-ajouter des contraintes sur la table diplome
-
 formulaire ajouter un cuisinier (Alex)
-
-Ne pas proposer de supprimer les quartiers qui ont encore des restaurants (Laure)
 
 Dans restaurants.php, afficher la description du quartier (Romain)
 
 revoir l'aspect général du site (Henri)
-
-intégrer le plan d'accès à la fiche du restaurant (Henri)
