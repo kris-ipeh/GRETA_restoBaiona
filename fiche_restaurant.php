@@ -59,5 +59,11 @@ while ($ligne = $requete->fetch()) {
 echo '</ul>';
 
 ?>
+	<div>
+	<!--bouton Supprimer-->
+	<label for="submit"></label>
+	<input type="submit" name="text" value="Supprimer">
+	</div>
+
 
 <?php include("pieddepage.php"); ?>
