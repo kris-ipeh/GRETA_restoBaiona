@@ -1,6 +1,15 @@
 <?php
 	include('entete.php');
 
+
+	if (isset($_POST['bouton'])) {
+		if (!empty($_POST['nom']) AND (!empty($_POST['mdp']))) {
+			echo 'ok';
+		}
+		else {
+			echo "non";
+		}
+	}
 ?>
 
 		<h3>INSCRIPTION</h3>

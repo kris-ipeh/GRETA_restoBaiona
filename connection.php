@@ -18,6 +18,6 @@ include('entete.php');
 		<input type="password" name="mdp" value="">
 	</div>
 
- <input type="submit" name="bouton" value="S'inscrire">
+ <input type="submit" name="bouton" value="Se connecter">
 </form>
 

@@ -2,7 +2,6 @@
 	include('entete.php');
 
 
-	$noom='SELECT * FROM utilisateur WHERE nom';
 
 	$nom=$_POST['nom'];
 	$mdp=$_POST['mdp'];
@@ -13,9 +12,7 @@
 				$request -> bindvalue(':mdp',$mdp);
 				$request -> execute();
 
-if ($nom=$noom) {
-	echo 'nom deja utiliser'
-}
+
 ?>
 
 
