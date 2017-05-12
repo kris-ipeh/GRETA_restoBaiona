@@ -1,7 +1,6 @@
 <?php include("entete.php");
 
 $id = $_REQUEST['id'];
-//var_dump($id);
 
 $requete = $base->prepare("
     SELECT
@@ -21,11 +20,9 @@ $requete->execute();
 $ligne = $requete->fetch();
 
 echo '<h2>'.$ligne['nom_cuisinier'].'</h2>';
-echo '<p> est titulaire du '.$ligne['diplome'].',</p>';
+echo '<p> titulaire du '.$ligne['diplome'].',</p>';
 echo '<p> travaille dans le restaurant : '.$ligne['restaurant'].',</p>';
 echo '<p> pour un salaire de '.$ligne['salaire'].'€.</p>';
-
+//Lien modifier cuisinier
 echo '<a href="update_cuisinier.php?id='.$ligne['id_cuisinier'].'">Modifier</a>';
-
-
 ?>
