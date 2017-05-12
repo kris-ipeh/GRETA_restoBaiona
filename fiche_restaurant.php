@@ -38,6 +38,14 @@ echo '<p>';
 echo $ligne['description'];
 echo '</p>';
 
+echo '<iframe
+			  width="600"
+			  height="450"
+			  frameborder="0" style="border:0"
+			  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCfdfxefoZzEleeHJs5l0Mg065kn2ydoRk
+			    &q='.$ligne['adresse'].'" allowfullscreen>
+			</iframe>';
+
 $requete = $base->prepare("SELECT cuisinier.nom AS nom_cuisinier,
 			diplome.nom AS diplome,
 			cuisinier.id AS id_cuisinier,
@@ -52,9 +60,9 @@ $requete->execute();
 
 echo '<ul>';
 while ($ligne = $requete->fetch()) {
-	echo '<li><strong>Cuisinier : </strong> '. $ligne['nom_cuisinier'] .'
-	<strong>Diplome : </strong>'.$ligne['diplome'].'
-	<a href="update_cuisinier.php?id='.$ligne['id_cuisinier'].'">Modifier</a></li>';
+	echo '<li><strong>Cuisinier : </strong><a href="fiche_cuisinier.php?id='.$ligne['id_cuisinier'].'"> '. $ligne['nom_cuisinier'] .'
+	</a><strong>Diplome : </strong>'.$ligne['diplome'].'</li>';
+
 };
 echo '</ul>';
 

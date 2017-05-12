@@ -18,13 +18,15 @@ create table restaurant(
  description text not null,
  id_quartier int not null,
  primary key(id),
- foreign key(id_quartier) references quartier(id)
+ foreign key(id_quartier) references quartier(id),
+ check(char_length(nom) >= 1)
 ) engine=InnoDB;
 
 create table diplome(
  id int not null auto_increment,
  nom varchar(100) not null,
- primary key(id)
+ primary key(id),
+ check(char_length(nom) >= 1)
 ) engine=InnoDB;
 
 create table cuisinier(
@@ -35,7 +37,8 @@ create table cuisinier(
  id_diplome int not null,
  primary key(id),
  foreign key(id_restaurant) references restaurant(id),
- foreign key(id_diplome) references diplome(id)
+ foreign key(id_diplome) references diplome(id),
+ check(char_length(nom) >=1)
 ) engine=InnoDB;
 
 insert into quartier (nom, description)
