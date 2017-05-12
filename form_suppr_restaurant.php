@@ -9,13 +9,13 @@
 	<small>Veuillez sélectionner un restaurant à supprimer</small>
 	
 	<!-- Début formulaire de suppression -->
-	<form action="form_suppr_restaurant.php">
-		<select name="nom-restaurant" id="restaurant">
+	<form action="action-suppr-restaurant.php">
+		<select name="id_restaurant" id="restaurant">
 			<?php $sql='SELECT id, nom FROM restaurant';
 			$request = $base->query($sql);
 			while($data = $request->fetch()) { ?>
 			<option value="<?php echo $data['id']; ?>">
-						<?php echo $data ['nom']; ?>
+						<?php echo $data['nom']; ?>
 			</option>
 			<?php } ?>
 		</select>
