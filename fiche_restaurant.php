@@ -38,6 +38,14 @@ echo '<p>';
 echo $ligne['description'];
 echo '</p>';
 
+echo '<iframe
+			  width="600"
+			  height="450"
+			  frameborder="0" style="border:0"
+			  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCfdfxefoZzEleeHJs5l0Mg065kn2ydoRk
+			    &q='.$ligne['adresse'].'" allowfullscreen>
+			</iframe>';
+
 $requete = $base->prepare("SELECT cuisinier.nom AS nom_cuisinier,
 			diplome.nom AS diplome,
 			cuisinier.id AS id_cuisinier,
