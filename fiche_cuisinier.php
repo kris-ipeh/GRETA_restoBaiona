@@ -24,5 +24,7 @@ echo '<p> titulaire du '.$ligne['diplome'].',</p>';
 echo '<p> travaille dans le restaurant : '.$ligne['restaurant'].',</p>';
 echo '<p> pour un salaire de '.$ligne['salaire'].'€.</p>';
 //Lien modifier cuisinier
-echo '<a href="update_cuisinier.php?id='.$ligne['id_cuisinier'].'">Modifier</a>';
+echo '<a href="update_cuisinier.php?id='.$ligne['id_cuisinier'].'">Modifier </a><br />';
+//Lien supprimer cuisinier
+echo '<a href="action_supprimer_cuisinier.php?id='.$ligne['id_cuisinier'].'">Supprimer</a>';
 ?>
