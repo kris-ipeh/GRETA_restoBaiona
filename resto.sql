@@ -6,7 +6,9 @@ create table quartier(
  id int not null auto_increment,
  nom varchar(100) not null,
  description text not null,
- primary key(id)
+ primary key(id),
+ unique(nom),
+ check(char_length(nom) >= 3)
 ) engine=InnoDB;
 
 create table restaurant(
