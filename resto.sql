@@ -41,6 +41,20 @@ create table cuisinier(
  check(char_length(nom) >=1)
 ) engine=InnoDB;
 
+create table reservation(
+  id int not null auto_increment,
+  nom varchar(100) not null,
+  date varchar(100) not null,
+  heure varchar(100) not null,
+  nombre int not null,
+  id_restaurant int not null,
+  primary key(id),
+  foreign key(id_restaurant) references restaurant(id),
+  check(char_length(nom) >=1)
+) engine=InnoDB;
+
+
+
 insert into quartier (nom, description)
 values
 ('Petit Bayonne', 'Un quartier assez étroit'),
