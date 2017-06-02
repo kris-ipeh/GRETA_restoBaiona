@@ -7,6 +7,7 @@
   <title>Site des restaurants des quartiers de la ville</title>
   <link href="bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style/style.css">
+
  </head>
 
  <body>

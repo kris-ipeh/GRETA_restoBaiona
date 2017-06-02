@@ -67,6 +67,33 @@ while ($ligne = $requete->fetch()) {
 echo '</ul>';
 
 ?>
+<div>
+	<h3>Réserver une table :</h3>
+</div>
+<div>
+	<form action="reservation.php" method="get" class="form-group">
+		<div>
+			<label for="name">Nom :</label>
+			<input type="text" name="name" id="name" class="form-control" />
+		</div>
+		<div>
+			<label for="date">Date de la réservation :</label>
+			<input type="date" name="date" id="date" class="form-control" />
+		</div>
+		<div>
+			<label for="time">Heure de la réservation :</label>
+			<input type="time" name="time" id="time" class="form-control" />
+		</div>
+		<div>
+			<label for="nombre">Nombre de personnes :</label>
+			<input type="number" name="nombre" id="nombre" class="form-control" />
+		</div>
+		<div>
+			<input type="hidden" name="id_restaurant" value="<?= $id; ?>">
+			<input type="submit" value="valider" class="btn btn-primary" >
+		</div>
+	</form>
+</div>
 
 
 <?php include("pieddepage.php"); ?>
