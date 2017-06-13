@@ -1,2 +1,4 @@
 config.inc.php
 node_modules/
+resto.sql
+liste_de_restaurants.txt

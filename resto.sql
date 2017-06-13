@@ -114,3 +114,43 @@ create table utilisateur(
 ) engine=InnoDB;
 
 
+CREATE TABLE import(
+enseigne varchar(200) not null,
+civilite varchar(200),
+prenom_dirigeant varchar(200),
+nom_dirigeant varchar(200),
+portable_dirigeant varchar(200),
+tel varchar(200),
+mail varchar(200),
+num varchar(200),
+voie varchar(200),
+activite varchar(200),
+sous_activite varchar(200),
+primary key(enseigne)
+) engine=InnoDB;
+
+/* On importe un fichier txt dans la table*/
+LOAD DATA LOCAL INFILE 'C:/wamp64/www/greta/git/resto/restaurants/liste_de_restaurants.txt'
+  INTO TABLE import
+  CHARACTER SET utf8
+  IGNORE 1 LINES;
+
+/* Insérer les restaurants en considérant que l'on ne connait pas le nbr de quartiers*/
+INSERT INTO restaurant (nom, adresse, description, id_quartier)
+  SELECT
+    LOWER(enseigne),
+    CONCAT_WS(' ', num, voie, '64200 Biarritz'),
+    sous_activite,
+    CEIL(RAND()*(SELECT COUNT(*) FROM quartier))
+  FROM import
+  WHERE activite = 'Bar - Restaurant';
+
+/* On considère que le dirigeant est le cuisinier du resto, insertion des cuisiniers*/
+INSERT INTO cuisinier (nom, salaire, id_diplome, id_restaurant)
+  SELECT
+    CONCAT_WS(' ', prenom_dirigeant, UPPER(nom_dirigeant)),
+    ROUND(RAND()*4000, 2)+1200,
+    CEIL(RAND()*(SELECT COUNT(*) FROM diplome)),
+    id
+  FROM import JOIN restaurant ON import.enseigne = restaurant.nom
+  WHERE activite = 'Bar - Restaurant' AND (import.nom_dirigeant <> '' OR import.prenom_dirigeant <> '');
