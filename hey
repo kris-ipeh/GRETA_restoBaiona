@@ -1,0 +1,6 @@
+#!/bin/bash
+
+prenom=$1
+nom=$2
+echo Hey $1 $2 ca va?
+

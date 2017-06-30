@@ -1,0 +1,6 @@
+#!/bin/bash
+d=$(date +%Y-%m-%d--%H-%M)
+nomFichier="restov2-$d.sql"
+/C/wamp64/bin/mysql/mysql5.7.14/bin/mysqldump -u root restov2 > $nomFichier
+gzip $nomFichier
+scp $nomFichier.gz  chris@greta.ldd.fr:
